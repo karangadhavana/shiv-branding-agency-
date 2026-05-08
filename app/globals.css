@@ -348,12 +348,12 @@ body {
   font-size: 18px;
 }
 
-/* ================= CHAT BUTTON ================= */
+/* ================= WHATSAPP BUTTON ================= */
 
 .chat-icon {
   width: 65px;
   height: 65px;
-  background: #a855f7;
+  background: #25D366;
   border-radius: 50%;
   position: fixed;
   right: 30px;
@@ -361,9 +361,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 26px;
+  font-size: 34px;
+  color: white;
   z-index: 1000;
-  cursor: pointer;
+  text-decoration: none;
   transition: 0.3s;
 }
 
@@ -448,5 +449,13 @@ body {
 
   .img-box {
     height: 320px;
+  }
+
+  .chat-icon {
+    width: 55px;
+    height: 55px;
+    right: 20px;
+    bottom: 20px;
+    font-size: 28px;
   }
 }

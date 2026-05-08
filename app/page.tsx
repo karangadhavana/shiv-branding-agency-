@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {
   FaPaintBrush,
   FaPrint,
@@ -11,12 +11,10 @@ import {
   FaVideo,
   FaLaptopCode,
   FaStore,
-  FaComments
+  FaWhatsapp
 } from "react-icons/fa";
 
 export default function Home() {
-
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
 
@@ -29,11 +27,9 @@ export default function Home() {
       const x = e.clientX;
       const y = e.clientY;
 
-      /* dot */
       cursor.style.left = x + "px";
       cursor.style.top = y + "px";
 
-      /* smooth ring */
       ring.animate(
         {
           left: x + "px",
@@ -231,10 +227,15 @@ export default function Home() {
         <p>Email: info@shivbranding.com</p>
       </section>
 
-      {/* CHAT ICON */}
-      <div className="chat-icon" onClick={() => setOpen(!open)}>
-        <FaComments />
-      </div>
+      {/* WHATSAPP BUTTON */}
+      <a
+        href="https://wa.me/918780904860?text=Hello%20Shiv%20Branding"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="chat-icon"
+      >
+        <FaWhatsapp />
+      </a>
 
     </main>
   );
