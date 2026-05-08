@@ -1,14 +1,25 @@
 /* ================= BASE ================= */
-body {
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: Arial, sans-serif;
   background: #050505;
   color: white;
-  overflow-x: hidden;
-  cursor: auto;
+  cursor: none;
 }
 
-/* ================= CURSOR ================= */
+/* ================= CUSTOM CURSOR ================= */
 
 .custom-cursor {
   width: 12px;
@@ -16,12 +27,11 @@ body {
   background: #a855f7;
   border-radius: 50%;
   position: fixed;
-  top: 0;
   left: 0;
+  top: 0;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: all 0.05s linear;
 }
 
 .cursor-ring {
@@ -30,43 +40,33 @@ body {
   border: 2px solid #a855f7;
   border-radius: 50%;
   position: fixed;
-  top: 0;
   left: 0;
+  top: 0;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: all 0.15s ease-out;
 }
 
-/* hover grow effect */
-a:hover ~ .cursor-ring,
-button:hover ~ .cursor-ring {
-  transform: translate(-50%, -50%) scale(1.5);
-}
-
-a,
-button {
-  cursor: pointer;
-}
-
-/* ================= NAV ================= */
+/* ================= NAVBAR ================= */
 
 .nav {
+  width: 100%;
+  padding: 25px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 80px;
-  border-bottom: 1px solid #111;
   position: sticky;
   top: 0;
-  background: rgba(5, 5, 5, 0.85);
-  backdrop-filter: blur(10px);
   z-index: 1000;
+  background: rgba(5, 5, 5, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #111;
 }
 
 .logo {
   font-size: 28px;
   font-weight: 800;
+  color: white;
 }
 
 .nav-links {
@@ -75,12 +75,12 @@ button {
 }
 
 .nav-links a {
-  position: relative;
   text-decoration: none;
   color: #aaa;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   transition: 0.3s;
+  position: relative;
 }
 
 .nav-links a:hover {
@@ -90,10 +90,10 @@ button {
 .nav-links a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -6px;
   width: 0%;
   height: 2px;
+  left: 0;
+  bottom: -6px;
   background: #a855f7;
   transition: 0.3s;
 }
@@ -105,48 +105,102 @@ button {
 /* ================= HERO ================= */
 
 .hero {
-  height: 85vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 72px;
-  margin: 0;
+  font-size: 80px;
+  line-height: 1.1;
+  margin-bottom: 20px;
 }
 
-.hero span {
+.hero h1 span {
   color: #a855f7;
 }
 
 .hero-sub {
+  max-width: 700px;
   font-size: 20px;
   color: #ccc;
-  margin-top: 20px;
-  max-width: 700px;
   line-height: 1.7;
 }
 
 .hero-mini {
-  margin-top: 12px;
-  font-size: 15px;
+  margin-top: 15px;
   color: #a855f7;
   letter-spacing: 3px;
+  font-size: 14px;
 }
 
 /* ================= SECTION ================= */
 
 .section {
   padding: 120px 80px;
-  text-align: center;
 }
 
 .section h2 {
   font-size: 60px;
   margin-bottom: 60px;
+  text-align: center;
+}
+
+/* ================= ABOUT ================= */
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.about-big {
+  font-size: 55px;
+  margin: 20px 0;
+  line-height: 1.2;
+}
+
+.about-big span {
+  color: #a855f7;
+}
+
+.about-text p {
+  color: #ccc;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.about-icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-icons div {
+  background: #0d0d0d;
+  border: 1px solid #222;
+  padding: 14px 20px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.about-icons div:hover {
+  border-color: #a855f7;
+  transform: translateY(-5px);
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 25px;
 }
 
 /* ================= SERVICES ================= */
@@ -158,10 +212,10 @@ button {
 }
 
 .service-card {
-  padding: 30px;
-  background: #0a0a0a;
+  background: #0d0d0d;
   border: 1px solid #222;
   border-radius: 18px;
+  padding: 35px;
   transition: 0.3s;
 }
 
@@ -174,68 +228,17 @@ button {
 .icon {
   font-size: 42px;
   color: #a855f7;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
-/* ================= ABOUT ================= */
-
-.about-section {
-  text-align: left;
+.service-card h3 {
+  margin-bottom: 12px;
+  font-size: 24px;
 }
 
-.about-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.about-big {
-  font-size: 55px;
-  margin: 20px 0;
-}
-
-.about-big span {
-  color: #a855f7;
-}
-
-.about-text p {
-  font-size: 20px;
-  color: #ccc;
+.service-card p {
+  color: #aaa;
   line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.about-icons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.about-icons div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #0a0a0a;
-  padding: 12px 18px;
-  border-radius: 10px;
-  border: 1px solid #222;
-  transition: 0.3s;
-}
-
-.about-icons div:hover {
-  border-color: #a855f7;
-  transform: translateY(-5px);
-}
-
-.about-image img {
-  width: 100%;
-  border-radius: 20px;
-  transition: 0.4s;
-}
-
-.about-image img:hover {
-  transform: scale(1.04);
 }
 
 /* ================= PORTFOLIO ================= */
@@ -256,44 +259,41 @@ button {
   width: 100%;
   height: 380px;
   object-fit: cover;
-  filter: grayscale(100%);
   transition: 0.5s;
+  filter: grayscale(100%);
 }
 
 .portfolio-card:hover img {
-  filter: grayscale(0%);
   transform: scale(1.1);
+  filter: grayscale(0%);
 }
 
 .portfolio-overlay {
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%;
-  padding: 20px;
+  padding: 25px;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.95),
-    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.3),
     transparent
   );
 }
 
 .portfolio-overlay h3 {
-  font-size: 26px;
-  margin: 0;
+  font-size: 28px;
 }
 
-.portfolio-overlay .cat {
+.cat {
   color: #a855f7;
-  font-size: 18px;
   margin-top: 5px;
 }
 
-.portfolio-overlay .desc {
-  color: #eee;
-  font-size: 15px;
-  margin-top: 10px;
-  line-height: 1.5;
+.desc {
+  color: #ddd;
+  margin-top: 8px;
 }
 
 /* ================= TEAM ================= */
@@ -304,77 +304,104 @@ button {
   gap: 30px;
 }
 
+.member {
+  text-align: center;
+}
+
 .img-box {
-  width: 100%;
-  height: 500px;
+  height: 420px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 22px;
 }
 
 .img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: 0.5s;
   filter: grayscale(100%);
-  transition: 0.5s ease;
 }
 
 .member:hover img {
+  transform: scale(1.08);
   filter: grayscale(0%);
-  transform: scale(1.05);
 }
 
 .member h3 {
-  font-size: 34px;
-  margin-top: 18px;
+  margin-top: 20px;
+  font-size: 28px;
 }
 
-.member .role {
-  font-size: 22px;
+.role {
   color: #a855f7;
+  margin-top: 6px;
 }
 
-/* ================= CHAT ================= */
+/* ================= CONTACT ================= */
+
+#contact {
+  text-align: center;
+}
+
+#contact p {
+  color: #aaa;
+  font-size: 18px;
+}
+
+/* ================= CHAT BUTTON ================= */
 
 .chat-icon {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
+  width: 65px;
+  height: 65px;
   background: #a855f7;
-  width: 70px;
-  height: 70px;
   border-radius: 50%;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  font-size: 26px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.chatbox {
-  position: fixed;
-  bottom: 120px;
-  right: 40px;
-  width: 420px;
-  height: 650px;
-  background: #0a0a0a;
-  border: 1px solid #222;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
+.chat-icon:hover {
+  transform: scale(1.1);
 }
 
-/* ================= MOBILE ================= */
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+
+  .services,
+  .portfolio,
+  .team,
+  .about-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+  }
+}
 
 @media (max-width: 768px) {
+
+  body {
+    cursor: auto;
+  }
+
   .custom-cursor,
   .cursor-ring {
     display: none;
   }
 
   .nav {
+    padding: 20px;
     flex-direction: column;
-    padding: 15px 20px;
-    gap: 10px;
+    gap: 15px;
   }
 
   .nav-links {
@@ -383,35 +410,25 @@ button {
     gap: 15px;
   }
 
-  .nav-links a {
-    font-size: 14px;
-  }
-
   .hero {
     height: auto;
-    padding: 80px 15px;
+    padding: 120px 20px;
   }
 
   .hero h1 {
-    font-size: 36px;
-    line-height: 1.2;
+    font-size: 42px;
   }
 
   .hero-sub {
-    font-size: 14px;
-    padding: 0 10px;
-  }
-
-  .hero-mini {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .section {
-    padding: 60px 15px;
+    padding: 80px 20px;
   }
 
   .section h2 {
-    font-size: 34px;
+    font-size: 38px;
   }
 
   .services,
@@ -421,42 +438,15 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .service-card {
-    padding: 20px;
-  }
-
   .about-big {
-    font-size: 30px;
-  }
-
-  .about-text p {
-    font-size: 14px;
-  }
-
-  .about-icons {
-    flex-direction: column;
+    font-size: 38px;
   }
 
   .portfolio-card img {
-    height: 240px;
+    height: 260px;
   }
 
   .img-box {
     height: 320px;
-  }
-
-  .member h3 {
-    font-size: 24px;
-  }
-
-  .member .role {
-    font-size: 16px;
-  }
-
-  .chat-icon {
-    width: 55px;
-    height: 55px;
-    bottom: 15px;
-    right: 15px;
   }
 }

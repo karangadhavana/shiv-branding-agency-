@@ -19,24 +19,39 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+
     const cursor = document.querySelector(".custom-cursor") as HTMLElement | null;
     const ring = document.querySelector(".cursor-ring") as HTMLElement | null;
 
-    const move = (e: MouseEvent) => {
+    const moveCursor = (e: MouseEvent) => {
       if (!cursor || !ring) return;
 
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
+      const x = e.clientX;
+      const y = e.clientY;
 
-      ring.style.left = `${e.clientX}px`;
-      ring.style.top = `${e.clientY}px`;
+      /* dot */
+      cursor.style.left = x + "px";
+      cursor.style.top = y + "px";
+
+      /* smooth ring */
+      ring.animate(
+        {
+          left: x + "px",
+          top: y + "px",
+        },
+        {
+          duration: 150,
+          fill: "forwards",
+        }
+      );
     };
 
-    window.addEventListener("mousemove", move);
+    window.addEventListener("mousemove", moveCursor);
 
     return () => {
-      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mousemove", moveCursor);
     };
+
   }, []);
 
   return (
@@ -100,7 +115,10 @@ export default function Home() {
           </div>
 
           <div className="about-image">
-            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900" />
+            <img
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900"
+              alt="About"
+            />
           </div>
 
         </div>
@@ -139,7 +157,11 @@ export default function Home() {
         <div className="portfolio">
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="portfolio-card">
-              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" />
+              <img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800"
+                alt="Portfolio"
+              />
+
               <div className="portfolio-overlay">
                 <h3>Project {i}</h3>
                 <p className="cat">Branding</p>
@@ -158,7 +180,10 @@ export default function Home() {
 
           <div className="member">
             <div className="img-box">
-              <img src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg" />
+              <img
+                src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg"
+                alt="Karan"
+              />
             </div>
             <h3>Karan Gadhavana</h3>
             <p className="role">Founder</p>
@@ -166,7 +191,10 @@ export default function Home() {
 
           <div className="member">
             <div className="img-box">
-              <img src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg" />
+              <img
+                src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg"
+                alt="Prashant"
+              />
             </div>
             <h3>Prashant Lathiya</h3>
             <p className="role">Founder</p>
@@ -174,7 +202,10 @@ export default function Home() {
 
           <div className="member">
             <div className="img-box">
-              <img src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg" />
+              <img
+                src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg"
+                alt="Pratik"
+              />
             </div>
             <h3>Pratik Makwana</h3>
             <p className="role">Founder</p>
@@ -182,7 +213,10 @@ export default function Home() {
 
           <div className="member">
             <div className="img-box">
-              <img src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg" />
+              <img
+                src="https://cdn.pixabay.com/photo/2024/04/16/18/16/ai-generated-8700575_1280.jpg"
+                alt="Vivek"
+              />
             </div>
             <h3>Vivek Gohel</h3>
             <p className="role">Founder</p>
