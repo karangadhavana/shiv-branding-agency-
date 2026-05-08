@@ -14,8 +14,11 @@ body {
   background: #a855f7;
   border-radius: 50%;
   position: fixed;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9999;
+  transform: translate(-50%, -50%);
 }
 
 .cursor-ring {
@@ -24,11 +27,15 @@ body {
   border: 2px solid #a855f7;
   border-radius: 50%;
   position: fixed;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9998;
+  transform: translate(-50%, -50%);
 }
 
-a, button {
+a,
+button {
   cursor: pointer;
 }
 
@@ -41,7 +48,7 @@ a, button {
   border-bottom: 1px solid #111;
   position: sticky;
   top: 0;
-  background: rgba(5,5,5,0.8);
+  background: rgba(5, 5, 5, 0.8);
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
@@ -145,7 +152,7 @@ a, button {
 .service-card:hover {
   transform: translateY(-10px);
   border-color: #a855f7;
-  box-shadow: 0 10px 40px rgba(168,85,247,0.2);
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.2);
 }
 
 .icon {
@@ -247,9 +254,9 @@ a, button {
   padding: 20px;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.9),
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.2)
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.2)
   );
 }
 
@@ -335,7 +342,6 @@ a, button {
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px) {
-
   .nav {
     flex-direction: column;
     padding: 15px 20px;
@@ -374,14 +380,12 @@ a, button {
 }
 
 @media (max-width: 768px) {
-
-  /* cursor disable on mobile (important) */
+  /* cursor disable on mobile */
   .custom-cursor,
   .cursor-ring {
     display: none;
   }
 
-  /* nav spacing better */
   .nav {
     padding: 15px 15px;
     gap: 10px;
@@ -391,7 +395,6 @@ a, button {
     font-size: 14px;
   }
 
-  /* hero better spacing */
   .hero {
     height: auto;
     padding: 80px 15px;
@@ -412,7 +415,6 @@ a, button {
     font-size: 12px;
   }
 
-  /* section spacing better */
   .section {
     padding: 60px 15px;
   }
@@ -421,12 +423,10 @@ a, button {
     font-size: 32px;
   }
 
-  /* services spacing improvement */
   .service-card {
     padding: 20px;
   }
 
-  /* about text spacing */
   .about-big {
     font-size: 28px;
   }
@@ -440,12 +440,10 @@ a, button {
     gap: 10px;
   }
 
-  /* portfolio fix */
   .portfolio-card img {
     height: 220px;
   }
 
-  /* team fix */
   .img-box {
     height: 300px;
   }
@@ -458,7 +456,6 @@ a, button {
     font-size: 16px;
   }
 
-  /* chat button fix */
   .chat-icon {
     width: 55px;
     height: 55px;
