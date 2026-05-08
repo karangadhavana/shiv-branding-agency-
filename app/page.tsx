@@ -15,7 +15,7 @@ export default function Home() {
     const cursor = document.querySelector(".custom-cursor");
     const ring = document.querySelector(".cursor-ring");
 
-    const move = (e) => {
+    const move = (e: MouseEvent) => {
       if (!cursor || !ring) return;
 
       cursor.style.top = e.clientY + "px";
