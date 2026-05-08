@@ -1,13 +1,15 @@
 /* ================= BASE ================= */
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #050505;
   color: white;
+  overflow-x: hidden;
   cursor: auto;
 }
 
 /* ================= CURSOR ================= */
+
 .custom-cursor {
   width: 12px;
   height: 12px;
@@ -19,6 +21,7 @@ body {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  transition: all 0.05s linear;
 }
 
 .cursor-ring {
@@ -32,6 +35,13 @@ body {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
+  transition: all 0.15s ease-out;
+}
+
+/* hover grow effect */
+a:hover ~ .cursor-ring,
+button:hover ~ .cursor-ring {
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 a,
@@ -40,6 +50,7 @@ button {
 }
 
 /* ================= NAV ================= */
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -48,7 +59,7 @@ button {
   border-bottom: 1px solid #111;
   position: sticky;
   top: 0;
-  background: rgba(5, 5, 5, 0.8);
+  background: rgba(5, 5, 5, 0.85);
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
@@ -92,16 +103,19 @@ button {
 }
 
 /* ================= HERO ================= */
+
 .hero {
-  height: 80vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: 70px;
+  font-size: 72px;
+  margin: 0;
 }
 
 .hero span {
@@ -111,19 +125,20 @@ button {
 .hero-sub {
   font-size: 20px;
   color: #ccc;
-  margin-top: 15px;
+  margin-top: 20px;
   max-width: 700px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .hero-mini {
-  margin-top: 10px;
-  font-size: 16px;
+  margin-top: 12px;
+  font-size: 15px;
   color: #a855f7;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 /* ================= SECTION ================= */
+
 .section {
   padding: 120px 80px;
   text-align: center;
@@ -135,6 +150,7 @@ button {
 }
 
 /* ================= SERVICES ================= */
+
 .services {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -145,7 +161,7 @@ button {
   padding: 30px;
   background: #0a0a0a;
   border: 1px solid #222;
-  border-radius: 15px;
+  border-radius: 18px;
   transition: 0.3s;
 }
 
@@ -156,12 +172,13 @@ button {
 }
 
 .icon {
-  font-size: 40px;
+  font-size: 42px;
   color: #a855f7;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 /* ================= ABOUT ================= */
+
 .about-section {
   text-align: left;
 }
@@ -185,14 +202,14 @@ button {
 .about-text p {
   font-size: 20px;
   color: #ccc;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 30px;
 }
 
 .about-icons {
   display: flex;
   gap: 20px;
-  font-size: 18px;
+  flex-wrap: wrap;
 }
 
 .about-icons div {
@@ -218,10 +235,11 @@ button {
 }
 
 .about-image img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 /* ================= PORTFOLIO ================= */
+
 .portfolio {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -254,29 +272,32 @@ button {
   padding: 20px;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.95),
     rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.2)
+    transparent
   );
 }
 
 .portfolio-overlay h3 {
   font-size: 26px;
-  color: #fff;
+  margin: 0;
 }
 
 .portfolio-overlay .cat {
-  font-size: 18px;
   color: #a855f7;
+  font-size: 18px;
+  margin-top: 5px;
 }
 
 .portfolio-overlay .desc {
-  font-size: 16px;
   color: #eee;
+  font-size: 15px;
+  margin-top: 10px;
   line-height: 1.5;
 }
 
 /* ================= TEAM ================= */
+
 .team {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -285,7 +306,7 @@ button {
 
 .img-box {
   width: 100%;
-  height: 550px;
+  height: 500px;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -304,16 +325,17 @@ button {
 }
 
 .member h3 {
-  font-size: 42px;
+  font-size: 34px;
   margin-top: 18px;
 }
 
 .member .role {
-  font-size: 26px;
+  font-size: 22px;
   color: #a855f7;
 }
 
 /* ================= CHAT ================= */
+
 .chat-icon {
   position: fixed;
   bottom: 30px;
@@ -325,6 +347,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .chatbox {
@@ -340,55 +363,24 @@ button {
   flex-direction: column;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: column;
-    padding: 15px 20px;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-    text-align: center;
-  }
-
-  .section {
-    padding: 60px 20px;
-  }
-
-  .services {
-    grid-template-columns: 1fr;
-  }
-
-  .about-container {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio {
-    grid-template-columns: 1fr;
-  }
-
-  .team {
-    grid-template-columns: 1fr;
-  }
-}
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-  /* cursor disable on mobile */
   .custom-cursor,
   .cursor-ring {
     display: none;
   }
 
   .nav {
-    padding: 15px 15px;
+    flex-direction: column;
+    padding: 15px 20px;
     gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
   }
 
   .nav-links a {
@@ -398,11 +390,10 @@ button {
   .hero {
     height: auto;
     padding: 80px 15px;
-    text-align: center;
   }
 
   .hero h1 {
-    font-size: 34px;
+    font-size: 36px;
     line-height: 1.2;
   }
 
@@ -420,7 +411,14 @@ button {
   }
 
   .section h2 {
-    font-size: 32px;
+    font-size: 34px;
+  }
+
+  .services,
+  .portfolio,
+  .team,
+  .about-container {
+    grid-template-columns: 1fr;
   }
 
   .service-card {
@@ -428,7 +426,7 @@ button {
   }
 
   .about-big {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .about-text p {
@@ -437,19 +435,18 @@ button {
 
   .about-icons {
     flex-direction: column;
-    gap: 10px;
   }
 
   .portfolio-card img {
-    height: 220px;
+    height: 240px;
   }
 
   .img-box {
-    height: 300px;
+    height: 320px;
   }
 
   .member h3 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .member .role {
