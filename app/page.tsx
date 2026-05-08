@@ -2,8 +2,15 @@
 
 import { useState, useEffect } from "react";
 import {
-  FaPaintBrush, FaPrint, FaGlobe, FaBullhorn,
-  FaCube, FaPenNib, FaVideo, FaLaptopCode, FaStore,
+  FaPaintBrush,
+  FaPrint,
+  FaGlobe,
+  FaBullhorn,
+  FaCube,
+  FaPenNib,
+  FaVideo,
+  FaLaptopCode,
+  FaStore,
   FaComments
 } from "react-icons/fa";
 
@@ -12,20 +19,24 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const cursor = document.querySelector(".cursor") as HTMLElement;
-    const ring = document.querySelector(".cursor-ring") as HTMLElement;
+    const cursor = document.querySelector(".custom-cursor") as HTMLElement | null;
+    const ring = document.querySelector(".cursor-ring") as HTMLElement | null;
+
     const move = (e: MouseEvent) => {
       if (!cursor || !ring) return;
 
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
 
-      ring.style.top = e.clientY + "px";
-      ring.style.left = e.clientX + "px";
+      ring.style.left = `${e.clientX}px`;
+      ring.style.top = `${e.clientY}px`;
     };
 
     window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+
+    return () => {
+      window.removeEventListener("mousemove", move);
+    };
   }, []);
 
   return (
@@ -126,7 +137,7 @@ export default function Home() {
         <h2>Our Portfolio</h2>
 
         <div className="portfolio">
-          {[1,2,3,4,5,6].map((i) => (
+          {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="portfolio-card">
               <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" />
               <div className="portfolio-overlay">
@@ -139,7 +150,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TEAM (FIXED) */}
+      {/* TEAM */}
       <section id="team" className="section">
         <h2>Our Team</h2>
 
