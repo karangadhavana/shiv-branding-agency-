@@ -12,9 +12,8 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const cursor = document.querySelector(".custom-cursor");
-    const ring = document.querySelector(".cursor-ring");
-
+    const cursor = document.querySelector(".cursor") as HTMLElement;
+    const ring = document.querySelector(".cursor-ring") as HTMLElement;
     const move = (e: MouseEvent) => {
       if (!cursor || !ring) return;
 
