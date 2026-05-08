@@ -222,10 +222,51 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section">
-        <h2>Contact Us</h2>
-        <p>Email: info@shivbranding.com</p>
-      </section>
+<section id="contact" className="section contact-section">
+
+  <div className="contact-container">
+
+    {/* LEFT SIDE */}
+    <div className="contact-left">
+
+      <h2>Contact Us</h2>
+
+      <div className="contact-info">
+
+        <p>📞 +91 87809 04860</p>
+        <p>📞 +91 74338 55583</p>
+        <p>📞 +91 93284 50679</p>
+        <p>📞 +91 95108 34431</p>
+
+        <br />
+
+        <p>📧 shivgraphics011@gmail.com</p>
+
+        <br />
+
+        <p>📍 Rajkot, Gujarat, India</p>
+
+      </div>
+
+    </div>
+
+    {/* RIGHT SIDE */}
+    <div className="contact-map">
+
+      <iframe
+        src="https://www.google.com/maps?q=Rajkot,Gujarat,India&output=embed"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+      ></iframe>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* WHATSAPP BUTTON */}
       <a
@@ -239,4 +280,4 @@ export default function Home() {
 
     </main>
   );
-}
+} 
